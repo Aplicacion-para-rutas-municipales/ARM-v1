@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    
+    <title>NOMINA</title>
+    
+</head>
+
+<style>
+	
+	body{
+		background-image: url(Imagenes/nomina-y-calculadora-cerca-a-la-nomina-de-sueldos-o-de-fondo-m08pe3.jpg)
+	}
+	
+	form{
+		background-color: #16804E;
+		margin: 0 auto;
+		width: 350px;
+		padding: 20px;
+		color: #C1DED1;
+		border-radius: 3px;
+		font-size: 20px;
+	}
+	input{
+		border: 0;
+		outline: inherit;
+		
+	}
+	
+	
+	.field{
+		border: solid 1px #ccc;
+		padding: 10px;
+		width: 310px;
+		
+	}
+	.field:focus{
+		border-color: #16804E;
+	}
+	
+	.btn{
+		border-radius: 3px;
+		display: inline-block;
+		padding: 20px 15px;
+		text-decoration: none;
+		text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+		box-shadow: 0 1px 0 rgba(0,0,0,0.3);
+		margin-top: 20px;
+		width: 340px;
+	}
+	.btn-green{
+		color: white;
+		background: #3CC93F;
+	}
+	.btn-green:hover{
+		background: #37B839;
+	}
+	.btn-green:active{
+		background-color: #29962A;
+	}
+	
+	</style>
+
+
+<body>
+
+	<form class="container" action="">
+			  
+		<h2 style="text-align: center">NOMINA</h2>
+				  
+			<label>Ingrese el salario basico</label>
+        			<input id="basics" type="text" class="field"><br>
+        			
+        	<label>Ingrese numero de horas extras diurnas</label>
+        			<input id="extrasdiurnass" type="text" class="field"><br>
+        	
+        	<label >Ingrese el numero de horas extras nocturnas</label>
+        			<input id="extrasnocturnass" type="text" class="field"><br>
+        			
+        	<label >Ingrese numero de horas extras festivas</label>
+        			<input id="extrasfestivass" type="text" class="field"><br>		
+        	
+        	<label >Ingrese numero de horas extras dominicales</label>
+        			<input id="extrasdominicaless" type="text" class="field"><br>	
+        			
+        	<label >Ingrese el numero de dias que falto al trabajo</label>
+        			<input id="diasfaltantess" type="text" class="field"><br>	
+      
+		  	
+			
+			  <button type="submit" class="btn" onclick="Accion()">Calcule su salario</button>
+
+					  
+	</form>
+			
+		<script>
+			
+		function Accion(){
+				
+		var basic,horasnormales,extrasdiurnas,extrasnocturnas,extrasfestivas,extrasdominicales,diasfaltantes,VALORHORAS,FALTANTES,SALARIO,DIURNAS,NOCTURNAS,FESTIVAS,DOMINICALES,SALARIOTOTAL,PENSION,DESCUENTOS,HORASEXTRAS,REALSALARIO;
+			
+				
+			basic = parseInt(document.getElementById("basics").value);
+		
+			extrasdiurnas = parseInt(document.getElementById("extrasdiurnass").value);
+		
+			extrasnocturnas = parseInt(document.getElementById("extrasnocturnass").value);
+		
+			extrasfestivas = parseInt(document.getElementById("extrasfestivass").value);
+			
+            extrasdominicales = parseInt(document.getElementById("extrasdominicaless").value);
+		
+			diasfaltantes = parseInt(document.getElementById("diasfaltantess").value);
+				
+				
+						horasnormales=basic/30/8;
+				
+						VALORHORAS=(8*horasnormales*30);
+				
+						FALTANTES=(diasfaltantes*8*horasnormales);
+				
+						SALARIO=VALORHORAS;
+				
+						DIURNAS=(horasnormales*125/100)*extrasdiurnas;
+				
+						NOCTURNAS=(horasnormales*135/100)*extrasnocturnas;
+				
+						FESTIVAS=(horasnormales*175/100)*extrasfestivas;
+				
+						DOMINICALES=horasnormales*2*extrasdominicales;
+				
+						SALARIOTOTAL=SALARIO+DIURNAS+NOCTURNAS+FESTIVAS+DOMINICALES;
+				
+						PENSION=SALARIOTOTAL*0.08;
+				
+						DESCUENTOS=PENSION+FALTANTES;
+				
+						HORASEXTRAS=DIURNAS+NOCTURNAS+FESTIVAS+DOMINICALES;
+				
+						REALSALARIO=SALARIOTOTAL-DESCUENTOS;
+				
+				
+				alert("El salario basico es de "+VALORHORAS+" pesos. El total de ingresos por horas extras es de "+HORASEXTRAS+" pesos. El total de descuentos es de "+DESCUENTOS+" pesos. Y el total a pagar es de "+REALSALARIO+" pesos.");
+				
+			}
+			
+		</script>
+
+
+</body>
+</html>
+
+
+# ARM-v1
